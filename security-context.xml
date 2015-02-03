@@ -1,0 +1,11 @@
+        <http auto-config="true" disable-url-rewriting="true"
+                create-session="stateless"
+                security-context-repository-ref="redisSecurityContextRepository">
+            <access-denied-handler error-page="/login"/>
+           
+        </http>
+
+        <beans:bean id="redisSecurityContextRepository" class="com.gdn.api.security.RedisSecurityContextRepository">
+            <beans:property name="cacheService" ref="cacheService"/>
+        </beans:bean>
+
